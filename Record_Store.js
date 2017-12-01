@@ -14,7 +14,6 @@ RecordStore.prototype = {
     remove: function(record){
         _.remove(this.inventory, record);
     }
-
 }
 
 module.exports = RecordStore;

@@ -6,6 +6,7 @@ describe("RecordStore", function(){
     beforeEach(function(){
         recordStore = new RecordStore("Big Als", "Glasgow", 5000);
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
+        record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
     })
 
     it("should have a name", function(){
@@ -34,7 +35,10 @@ describe("RecordStore", function(){
         recordStore.remove(record1);
         assert.deepStrictEqual(recordStore.inventory, []);
     })
-    it("should be able to display all records of inventory")
+
+    it("should be able to display all records of inventory", function(){
+    })
+
     it("should be able to sell a record")
     it("should be able to calculate the total value of inventory")
     it("should be able to return finances + total value of inventory")
