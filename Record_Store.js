@@ -18,6 +18,10 @@ RecordStore.prototype = {
         return _.forEach(this.inventory, function(record){
             record.getRecord();
         })
+    },
+    sell: function(record){
+        this.remove(record);
+        this.balance -= record.price;
     }
 }
 
