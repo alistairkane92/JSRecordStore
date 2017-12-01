@@ -22,4 +22,8 @@ describe("Record", function(){
         assert.strictEqual(record1.price, 5);
     })
 
+    it("should be able to display a record as string", function(){
+        assert.deepStrictEqual(record1.getRecord(record1), "Black Album, Metallica, Metal, 5");
+    })
+
 })
