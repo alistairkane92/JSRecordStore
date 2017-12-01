@@ -22,6 +22,11 @@ RecordStore.prototype = {
     sell: function(record){
         this.remove(record);
         this.balance -= record.price;
+    },
+    calculateTotal: function(){
+        return _.sumBy(this.inventory, function(record){
+            return record.price;
+        })
     }
 }
 
