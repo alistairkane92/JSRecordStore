@@ -29,7 +29,11 @@ describe("RecordStore", function(){
         assert.deepStrictEqual(recordStore.inventory, [record1]);
     })
 
-    it("should be able to remove a record from inventory")
+    it("should be able to remove a record from inventory", function(){
+        recordStore.add(record1);
+        recordStore.remove(record1);
+        assert.deepStrictEqual(recordStore.inventory, []);
+    })
     it("should be able to display all records of inventory")
     it("should be able to sell a record")
     it("should be able to calculate the total value of inventory")

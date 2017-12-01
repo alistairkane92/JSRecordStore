@@ -1,3 +1,5 @@
+var _ = require("Lodash");
+
 var RecordStore = function(name, city, balance){
     this.name = name;
     this.city = city;
@@ -9,7 +11,9 @@ RecordStore.prototype = {
     add: function(record){
         this.inventory.push(record);
     },
-    
+    remove: function(record){
+        _.remove(this.inventory, record);
+    }
 
 }
 
