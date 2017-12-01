@@ -1,0 +1,22 @@
+{
+  "name": "weekendhomework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Record.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alistairkane92/JSRecordStore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alistairkane92/JSRecordStore/issues"
+  },
+  "homepage": "https://github.com/alistairkane92/JSRecordStore#readme",
+  "dependencies": {
+    "mocha": "^4.0.1"
+  }
+}
