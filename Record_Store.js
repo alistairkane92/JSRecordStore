@@ -13,6 +13,11 @@ RecordStore.prototype = {
     },
     remove: function(record){
         _.remove(this.inventory, record);
+    },
+    getInventory: function(){
+        return _.forEach(this.inventory, function(record){
+            record.getRecord();
+        })
     }
 }
 
