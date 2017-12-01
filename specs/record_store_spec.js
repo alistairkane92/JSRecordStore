@@ -54,7 +54,12 @@ describe("RecordStore", function(){
         assert.strictEqual(recordStore.calculateTotal(), 15);
     })
 
-    it("should be able to return finances + total value of inventory")
+    it("should be able to return finances + total value of inventory", function(){
+        recordStore.add(record1);
+        recordStore.add(record2);
+        assert.strictEqual(recordStore.getFinances(), "Balance : 5000, Value : 15")
+    })
+
     it("should be able to return all records by a specific genre")
 
 })

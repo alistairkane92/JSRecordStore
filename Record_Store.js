@@ -28,6 +28,9 @@ RecordStore.prototype = {
             return record.price;
         })
     },
+    getFinances: function(){
+        return "Balance : " + this.balance + ", Value : " + this.calculateTotal();
+    }
 
 }
 
