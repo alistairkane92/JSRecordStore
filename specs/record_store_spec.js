@@ -2,14 +2,28 @@ var assert = require('assert');
 var Record = require('../record');
 var RecordStore = require('../record_store');
 
-describe("Record", function(){
+describe("RecordStore", function(){
     beforeEach(function(){
+        recordStore = new RecordStore("Big Als", "Glasgow", 5000);
+        record1 = new Record("Black Album", "Metallica", "Metal", 5);
     })
 
-    it("should have a name")
-    it("should have a city")
-    it("should have a balance")
-    it("should have an inventory")
+    it("should have a name", function(){
+        assert.strictEqual(recordStore.name, "Big Als");
+    })
+
+    it("should have a city", function(){
+        assert.strictEqual(recordStore.city, "Glasgow");
+    })
+
+    it("should have a balance", function(){
+        assert.strictEqual(recordStore.balance, 5000);
+    })
+
+    it("should have an inventory",function(){
+        assert.deepStrictEqual(recordStore.inventory, []);
+    })
+
     it("should be able to add records to inventory")
     it("should be able to remove a record from inventory")
     it("should be able to display all records of inventory")
