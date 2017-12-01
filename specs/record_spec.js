@@ -14,7 +14,10 @@ describe("Record", function(){
         assert.strictEqual(record1.artist, "Metallica");
     })
 
-    it("should have a genre")
+    it("should have a genre", function(){
+        assert.strictEqual(record1.genre, "Metal");
+    })
+    
     it("should have a price")
 
 })
