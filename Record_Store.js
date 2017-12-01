@@ -27,7 +27,8 @@ RecordStore.prototype = {
         return _.sumBy(this.inventory, function(record){
             return record.price;
         })
-    }
+    },
+
 }
 
 module.exports = RecordStore;
