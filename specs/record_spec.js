@@ -10,7 +10,10 @@ describe("Record", function(){
         assert.strictEqual(record1.title, "Black Album");
     })
 
-    it("should have an artist")
+    it("should have an artist", function(){
+        assert.strictEqual(record1.artist, "Metallica");
+    })
+
     it("should have a genre")
     it("should have a price")
 
