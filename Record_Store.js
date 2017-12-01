@@ -30,8 +30,10 @@ RecordStore.prototype = {
     },
     getFinances: function(){
         return "Balance : " + this.balance + ", Value : " + this.calculateTotal();
+    },
+    getByGenre: function(genre){
+        return _.filter(this.inventory, {"genre" : genre});
     }
-
 }
 
 module.exports = RecordStore;

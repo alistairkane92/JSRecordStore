@@ -3,6 +3,8 @@ var Record = require('../record');
 var RecordStore = require('../record_store');
 
 describe("RecordStore", function(){
+    var record1, record2, recordStore;
+
     beforeEach(function(){
         recordStore = new RecordStore("Big Als", "Glasgow", 5000);
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
@@ -60,6 +62,13 @@ describe("RecordStore", function(){
         assert.strictEqual(recordStore.getFinances(), "Balance : 5000, Value : 15")
     })
 
-    it("should be able to return all records by a specific genre")
+    it("should be able to return all records by a specific genre", function(){
+        var record3 = new Record("From Mars to Sirius", "Gojira", "Metal", 3);
+
+        recordStore.add(record1);
+        recordStore.add(record2);
+        recordStore.add(record3);
+        assert.deepStrictEqual(recordStore.getByGenre("Metal"), [record1, record3]);
+    })
 
 })
