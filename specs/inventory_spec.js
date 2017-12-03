@@ -10,7 +10,8 @@ describe("Inventory", function(){
     });
 
     it("should be able to add records to stock", function(){
-
+        inventory.add(record1)
+        assert.deepStrictEqual(inventory.stock, [record1])
     })
 
     it("should be able to remove a record from stock")
