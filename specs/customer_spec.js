@@ -6,14 +6,16 @@ var Inventory = require('../inventory');
 describe("Customer", function(){
     beforeEach(function(){
         inventory = new Inventory();
-        customer = new Customer("Terry", inventory);
+        customer = new Customer("Terry", inventory, 500);
     })
 
     it("should have a name", function(){
         assert.strictEqual(customer.name, "Terry");
     })
 
-    it("should have funds")
+    it("should have funds", function(){
+        assert.strictEqual(customer.funds, 500);
+    })
     it("should be able to buy a record")
     it("should be able to sell a record")
     it("should not be able to buy if doesn't have enough funds")
