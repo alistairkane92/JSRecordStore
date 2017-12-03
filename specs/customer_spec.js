@@ -23,27 +23,27 @@ describe("Customer", function(){
         assert.strictEqual(customer.name, "Terry");
     })
 
-    it("should have funds", function(){
-        assert.strictEqual(customer.funds, 500);
+    it("should have balance", function(){
+        assert.strictEqual(customer.balance, 500);
     })
 
     it("should be able to buy a record", function(){
         recordStore.buy(record1);
         customer.buy(record1, recordStore);
 
-        assert.strictEqual(customer.funds, 495);
+        assert.strictEqual(customer.balance, 495);
         assert.strictEqual(recordStore.balance, 5000);
 
         assert.deepStrictEqual(recordStore.getInventory(), []);
         assert.deepStrictEqual(customer.getInventory(), [record1]);
     })
 
-    it("should not be able to buy if doesn't have enough funds", function(){
+    it("should not be able to buy if doesn't have enough balance", function(){
         var record4 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
         recordStore.buy(record4);
         customer.buy(record4, recordStore);
 
-        assert.strictEqual(customer.funds, 500);
+        assert.strictEqual(customer.balance, 500);
         assert.deepStrictEqual(customer.getInventory(), []);
     })
 
@@ -82,7 +82,7 @@ describe("Customer", function(){
         recordStore.buy(record1);
         customer.buy(record1, recordStore);
         customer.sell(record1, recordStore);
-        assert.strictEqual(customer.funds, 500);
+        assert.strictEqual(customer.balance, 500);
     })
 
 describe("Customer Inventory", function(){
