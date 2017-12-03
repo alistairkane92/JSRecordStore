@@ -34,8 +34,14 @@ describe("Customer", function(){
         customer.sell(record1);
         assert.strictEqual(customer.funds, 500);
     })
-    
-    it("should not be able to buy if doesn't have enough funds")
+
+    it("should not be able to buy if doesn't have enough funds", function(){
+        record2 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
+        customer.buy(record2);
+        assert.strictEqual(customer.funds, 500);
+        assert.deepStrictEqual(customer.inventory.stock, []);
+    })
+
     it("should be able to view total value of inventory")
     it("should be able to calculate total value of inventory")
     it("should be able to calculate total by genre of inventory")

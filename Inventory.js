@@ -12,9 +12,13 @@ Inventory.prototype = {
         _.remove(this.stock, record);
     },
     getStock: function(){
-        return _.forEach(this.stock, function(record){
-            record.getRecord();
-        })
+        if (this.stock.length > 0){
+            return _.forEach(this.stock, function(record){
+                record.getRecord();
+            })
+        } else {
+            return this.stock;
+        }
     },
     calculateTotal: function(){
         return _.sumBy(this.stock, function(record){

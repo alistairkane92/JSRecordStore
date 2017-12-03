@@ -9,8 +9,10 @@ Customer.prototype = {
         return this.inventory.getStock();
     },
     buy: function(record){
-        this.inventory.add(record);
-        this.funds -= record.price;
+        if (this.funds > record.price){
+            this.inventory.add(record);
+            this.funds -= record.price;
+        }
     },
     sell: function(record){
         this.inventory.remove(record);
