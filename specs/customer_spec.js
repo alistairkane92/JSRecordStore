@@ -43,13 +43,11 @@ describe("Customer", function(){
         assert.deepStrictEqual(customer.inventory.stock, []);
     })
 
-    it("should be able to view total value of inventory", function(){
+    it("should be able to calculate total value of inventory", function(){
         customer.buy(record1);
         customer.buy(record2);
         assert.strictEqual(customer.calculateTotal(), 15);
     })
-
-    it("should be able to calculate total value of inventory")
     it("should be able to calculate total by genre of inventory")
     it("should be able to view the most valuable record")
     it("should be able to sort records by value")
