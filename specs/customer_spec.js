@@ -60,6 +60,12 @@ describe("Customer", function(){
         assert.strictEqual(customer2.isValueGreater(customer), false);
     })
 
+    it("should be able to sell a record", function(){
+        customer.buy(record1);
+        customer.sell(record1);
+        assert.strictEqual(customer.funds, 500);
+    })
+
 describe("Customer Inventory", function(){
     beforeEach(function(){
         inventory = new Inventory();
@@ -72,12 +78,6 @@ describe("Customer Inventory", function(){
     it("should be able to return all records of inventory", function(){
         customer.inventory.add(record1);
         assert.deepStrictEqual(customer.getInventory(), [record1]);
-    })
-
-    it("should be able to sell a record", function(){
-        customer.buy(record1);
-        customer.sell(record1);
-        assert.strictEqual(customer.funds, 500);
     })
 
     it("should be able to calculate total value of inventory", function(){

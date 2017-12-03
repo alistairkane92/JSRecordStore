@@ -38,6 +38,7 @@ describe("RecordStore", function(){
     })
 
 
+
 describe("Record Store Inventory", function(){
 
     it("should be able to get all records of inventory", function(){
@@ -50,6 +51,14 @@ describe("Record Store Inventory", function(){
         recordStore.add(record1);
         recordStore.add(record2);
         assert.strictEqual(recordStore.calculateTotal(), 15);
+    })
+
+    it("should be able to return all by genre", function(){
+        record3 = new Record("test", "test", "Metal", 10);
+        recordStore.add(record1);
+        recordStore.add(record2);
+        recordStore.add(record3);
+        assert.deepStrictEqual(recordStore.getByGenre("Metal"), [record1, record3]);
     })
 
 })
