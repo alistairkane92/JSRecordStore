@@ -9,7 +9,7 @@ describe("Inventory", function(){
         inventory = new Inventory();
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
         record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
-    });
+    })
 
     it("should be able to add records to stock", function(){
         inventory.add(record1);
