@@ -5,7 +5,8 @@ var Inventory = require('../inventory');
 
 describe("Customer", function(){
     beforeEach(function(){
-
+        inventory = new Inventory();
+        customer = new Customer("Terry", inventory);
     })
 
     it("should have a name")
