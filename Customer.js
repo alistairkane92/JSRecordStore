@@ -26,6 +26,9 @@ Customer.prototype = {
     },
     getTotalByGenre: function(genre){
         return this.inventory.getTotalByGenre(genre);
+    },
+    getMostValuable: function(){
+        return this.inventory.getMostValuable();
     }
 }
 

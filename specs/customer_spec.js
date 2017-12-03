@@ -5,7 +5,7 @@ var Inventory = require('../inventory');
 
 describe("Customer", function(){
     var record1, record2, record3, customer, inventory;
-    
+
     beforeEach(function(){
         inventory = new Inventory();
         customer = new Customer("Terry", inventory, 500);
@@ -60,8 +60,17 @@ describe("Customer", function(){
     })
 
     it("should be able to view the most valuable record", function(){
-
+        customer.buy(record1);
+        customer.buy(record2);
+        customer.buy(record3);
+        assert.strictEqual(customer.getMostValuable(), "Paranoid by Black Sabbath: Metal: 20")
     })
-    it("should be able to sort records by value")
+
+    it("should be able to sort records by value", function(){
+        customer.buy(record1);
+        customer.buy(record2);
+        customer.buy(record3);
+        assert.deepStrictEqual(customer.sortByValue(), )
+    })
     it("should be able to compare value of their collection with value of another")
 })

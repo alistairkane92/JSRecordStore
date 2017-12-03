@@ -31,6 +31,12 @@ Inventory.prototype = {
     getTotalByGenre: function(genre){
         return _.sumBy(this.getByGenre(genre), "price");
     },
-    
+    getMostValuable: function(){
+        var sortedArray = _.orderBy(this.stock, ["price"], ["desc"]);
+        return sortedArray[0].getRecord();
+    },
+
+
+
 }
 module.exports = Inventory;

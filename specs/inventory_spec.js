@@ -51,4 +51,10 @@ describe("Inventory", function(){
         inventory.add(record3);
         assert.strictEqual(inventory.getTotalByGenre("Metal"), 25);
     })
+
+    it("should be able to return the most valuable record", function(){
+        inventory.add(record1);
+        inventory.add(record2);
+        assert.strictEqual(inventory.getMostValuable(), "Brothers by The Black Keys: Rock: 10")
+    })
 })
