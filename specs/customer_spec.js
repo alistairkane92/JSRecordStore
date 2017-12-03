@@ -60,7 +60,7 @@ describe("Customer", function(){
         assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 30, Nadine: 5");
     })
 
-    xit("should return true or false if value greater than comparator", function(){
+    it("should return true or false if value greater than comparator", function(){
         inventory2 = new Inventory();
         customer2 = new Customer("Nadine", inventory2, 500);
         customer2.buy(record2, recordStore);
@@ -72,7 +72,7 @@ describe("Customer", function(){
         assert.strictEqual(customer2.isValueGreater(customer), false);
     })
 
-    xit("should be able to sell a record", function(){
+    it("should be able to sell a record", function(){
         customer.buy(record1, recordStore);
         customer.sell(record1);
         assert.strictEqual(customer.funds, 500);

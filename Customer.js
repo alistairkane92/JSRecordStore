@@ -11,7 +11,7 @@ Customer.prototype = {
         return this.inventory.stock;
     },
     buy: function(record, recordStore){
-        if (this.funds >= record.price){
+        if (this.funds >= record.price && _.includes(recordStore.getInventory(), record)){
             this.funds -= record.price;
             this.inventory.add(record);
             recordStore.sell(record);
