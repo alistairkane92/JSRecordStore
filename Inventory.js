@@ -11,15 +11,6 @@ Inventory.prototype = {
     remove: function(record){
         _.remove(this.stock, record);
     },
-    getStock: function(){
-        if (this.stock.length > 0){
-            return _.forEach(this.stock, function(record){
-                record.getRecord();
-            })
-        } else {
-            return this.stock;
-        }
-    },
     calculateTotal: function(){
         return _.sumBy(this.stock, function(record){
             return record.price;
@@ -37,6 +28,6 @@ Inventory.prototype = {
     sortByValue: function(){
         return _.orderBy(this.stock, ["price"], ["desc"]);
     },
-    
+
 }
 module.exports = Inventory;
