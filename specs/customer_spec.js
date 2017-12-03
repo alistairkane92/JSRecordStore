@@ -8,6 +8,7 @@ describe("Customer", function(){
         inventory = new Inventory();
         customer = new Customer("Terry", inventory, 500);
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
+        record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
     })
 
     it("should have a name", function(){
@@ -36,13 +37,18 @@ describe("Customer", function(){
     })
 
     it("should not be able to buy if doesn't have enough funds", function(){
-        record2 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
-        customer.buy(record2);
+        record3 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
+        customer.buy(record3);
         assert.strictEqual(customer.funds, 500);
         assert.deepStrictEqual(customer.inventory.stock, []);
     })
 
-    it("should be able to view total value of inventory")
+    it("should be able to view total value of inventory", function(){
+        customer.buy(record1);
+        customer.buy(record2);
+        assert.strictEqual(customer.calculateTotal(), 15);
+    })
+
     it("should be able to calculate total value of inventory")
     it("should be able to calculate total by genre of inventory")
     it("should be able to view the most valuable record")

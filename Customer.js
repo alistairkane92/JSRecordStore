@@ -17,6 +17,9 @@ Customer.prototype = {
     sell: function(record){
         this.inventory.remove(record);
         this.funds += record.price;
+    },
+    calculateTotal: function(){
+        return this.inventory.calculateTotal();
     }
 }
 
