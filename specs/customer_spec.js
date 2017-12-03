@@ -81,7 +81,6 @@ describe("Customer", function(){
     })
 
     it("should be able to sell a record", function(){
-        recordStore.buy(record1);
         customer.buy(record1, recordStore);
         customer.sell(record1, recordStore);
         assert.strictEqual(customer.balance, 500);
@@ -89,9 +88,6 @@ describe("Customer", function(){
 
 describe("Customer Inventory", function(){
     beforeEach(function(){
-        recordStore.buy(record1);
-        recordStore.buy(record2);
-        recordStore.buy(record3);
         customer.buy(record1, recordStore);
         customer.buy(record2, recordStore);
         customer.buy(record3, recordStore);
