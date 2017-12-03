@@ -44,20 +44,20 @@ describe("Customer", function(){
     it("should not be able to buy if doesn't have enough funds", function(){
         var record3 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
         customer.buy(record3, recordStore);
+
         assert.strictEqual(customer.funds, 500);
         assert.deepStrictEqual(customer.getInventory(), []);
     })
 
-    xit("should be able to compare value of their collection with value of another", function(){
+    it("should be able to compare value of their collection with value of another", function(){
         inventory2 = new Inventory();
         customer2 = new Customer("Nadine", inventory2, 500);
         customer2.buy(record1, recordStore);
 
-        customer.buy(record1, recordStore);
         customer.buy(record3, recordStore);
         customer.buy(record2, recordStore);
 
-        assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 35, Nadine: 5");
+        assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 30, Nadine: 5");
     })
 
     xit("should return true or false if value greater than comparator", function(){
