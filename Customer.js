@@ -23,6 +23,15 @@ Customer.prototype = {
             this.balance += record.price;
         }
     },
+    compareTotalValue: function(customer){
+        return this.name + ": " + this.calculateTotal() + ", "
+        + customer.name + ": " + customer.calculateTotal();
+    },
+    isValueGreater: function(customer){
+        if (this.calculateTotal() > customer.calculateTotal()){
+            return true;
+        } return false;
+    },
     calculateTotal: function(){
         return this.inventory.calculateTotal();
     },
@@ -37,15 +46,6 @@ Customer.prototype = {
     },
     sortByValue: function(){
         return this.inventory.sortByValue();
-    },
-    compareTotalValue: function(customer){
-        return this.name + ": " + this.calculateTotal() + ", "
-        + customer.name + ": " + customer.calculateTotal();
-    },
-    isValueGreater: function(customer){
-        if (this.calculateTotal() > customer.calculateTotal()){
-            return true;
-        } return false;
     }
 }
 
