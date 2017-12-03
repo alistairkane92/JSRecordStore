@@ -32,6 +32,9 @@ RecordStore.prototype = {
     },
     getMostValuable: function(){
         return this.inventory.getMostValuable();
+    },
+    sortByValue: function(){
+        return this.inventory.sortByValue();
     }
 }
 

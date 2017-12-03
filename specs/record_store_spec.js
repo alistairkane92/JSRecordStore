@@ -69,6 +69,14 @@ describe("Record Store Inventory", function(){
         assert.strictEqual(recordStore.getMostValuable(), "BigMetal by MetalBand: Metal: 100");
     })
 
+    it("should be able to sort by value", function(){
+        record3 = new Record("BigMetal", "MetalBand", "Metal", 100);
+        recordStore.add(record1);
+        recordStore.add(record3);
+        recordStore.add(record2);
+        assert.deepStrictEqual(recordStore.sortByValue(), [record3, record2, record1]);
+    })
+
 })
 
 })
