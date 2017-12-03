@@ -9,7 +9,7 @@ var RecordStore = function(name, city, balance, inventory){
 
 RecordStore.prototype = {
     add: function(record){
-        this.inventory.push(record);
+        this.inventory.add(record);
     },
     remove: function(record){
         _.remove(this.inventory, record);

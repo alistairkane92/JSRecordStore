@@ -7,7 +7,7 @@ describe("RecordStore", function(){
     var record1, record2, recordStore;
 
     beforeEach(function(){
-        recordStore = new RecordStore("Big Als", "Glasgow", 5000);
+        recordStore = new RecordStore("Big Als", "Glasgow", 5000, inventory);
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
         record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
         inventory = new Inventory();
@@ -25,52 +25,16 @@ describe("RecordStore", function(){
         assert.strictEqual(recordStore.balance, 5000);
     })
 
-    it("should have an inventory",function(){
-        assert.deepStrictEqual(recordStore.inventory, []);
-    })
-
-    it("should be able to add records to inventory", function(){
-        recordStore.add(record1);
-        assert.deepStrictEqual(recordStore.inventory, [record1]);
-    })
-
-    it("should be able to remove a record from inventory", function(){
-        recordStore.add(record1);
-        recordStore.remove(record1);
-        assert.deepStrictEqual(recordStore.inventory, []);
-    })
-
-    it("should be able to get all records in inventory", function(){
-        recordStore.add(record1);
-        recordStore.add(record2);
-        assert.deepStrictEqual(recordStore.getInventory(), [record1, record2]);
-    })
-
     it("should be able to sell a record", function(){
         recordStore.add(record1);
         recordStore.sell(record1);
         assert.strictEqual(recordStore.balance, 4995);
     })
 
-    it("should be able to calculate the total value of inventory", function(){
-        recordStore.add(record1);
-        recordStore.add(record2);
-        assert.strictEqual(recordStore.calculateTotal(), 15);
-    })
-
     it("should be able to return finances + total value of inventory", function(){
         recordStore.add(record1);
         recordStore.add(record2);
         assert.strictEqual(recordStore.getFinances(), "Balance : 5000, Value : 15")
-    })
-
-    it("should be able to return all records by a specific genre", function(){
-        var record3 = new Record("From Mars to Sirius", "Gojira", "Metal", 3);
-
-        recordStore.add(record1);
-        recordStore.add(record2);
-        recordStore.add(record3);
-        assert.deepStrictEqual(recordStore.getByGenre("Metal"), [record1, record3]);
     })
 
 })
