@@ -22,15 +22,42 @@ describe("Customer", function(){
         assert.strictEqual(customer.funds, 500);
     })
 
-    it("should be able to return all records of inventory", function(){
-        customer.inventory.add(record1);
-        assert.deepStrictEqual(customer.getInventory(), [record1]);
-    })
-
     it("should be able to buy a record", function(){
         customer.buy(record1);
         assert.strictEqual(customer.funds, 495);
         assert.deepStrictEqual(customer.getInventory(), [record1]);
+    })
+
+    it("should not be able to buy if doesn't have enough funds", function(){
+        var record3 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
+        customer.buy(record3);
+        assert.strictEqual(customer.funds, 500);
+        assert.deepStrictEqual(customer.inventory.stock, []);
+    })
+
+    it("should be able to compare value of their collection with value of another", function(){
+        inventory2 = new Inventory();
+        customer2 = new Customer("Nadine", inventory2, 500);
+        customer2.buy(record1);
+
+        customer.buy(record1);
+        customer.buy(record3);
+        customer.buy(record2);
+
+        assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 35, Nadine: 5");
+    })
+
+    it("should return true or false if value greater than comparator", function(){
+        inventory2 = new Inventory();
+        customer2 = new Customer("Nadine", inventory2, 500);
+        customer2.buy(record1);
+
+        customer.buy(record1);
+        customer.buy(record3);
+        customer.buy(record2);
+
+        assert.strictEqual(customer.isValueGreater(customer2), true);
+        assert.strictEqual(customer2.isValueGreater(customer), false);
     })
 
     it("should be able to sell a record", function(){
@@ -39,11 +66,18 @@ describe("Customer", function(){
         assert.strictEqual(customer.funds, 500);
     })
 
-    it("should not be able to buy if doesn't have enough funds", function(){
-        var record3 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
-        customer.buy(record3);
-        assert.strictEqual(customer.funds, 500);
-        assert.deepStrictEqual(customer.inventory.stock, []);
+describe("Customer Inventory", function(){
+    beforeEach(function(){
+        inventory = new Inventory();
+        customer = new Customer("Terry", inventory, 500);
+        record1 = new Record("Black Album", "Metallica", "Metal", 5);
+        record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
+        record3 = new Record("Paranoid", "Black Sabbath", "Metal", 20);
+    })
+
+    it("should be able to return all records of inventory", function(){
+        customer.inventory.add(record1);
+        assert.deepStrictEqual(customer.getInventory(), [record1]);
     })
 
     it("should be able to calculate total value of inventory", function(){
@@ -73,28 +107,5 @@ describe("Customer", function(){
         assert.deepStrictEqual(customer.sortByValue(), [record3, record2, record1]);
     })
 
-    it("should be able to compare value of their collection with value of another", function(){
-        inventory2 = new Inventory();
-        customer2 = new Customer("Nadine", inventory2, 500);
-        customer2.buy(record1);
-
-        customer.buy(record1);
-        customer.buy(record3);
-        customer.buy(record2);
-
-        assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 35, Nadine: 5");
-    })
-
-    it("should return true or false if value greater than comparator", function(){
-        inventory2 = new Inventory();
-        customer2 = new Customer("Nadine", inventory2, 500);
-        customer2.buy(record1);
-
-        customer.buy(record1);
-        customer.buy(record3);
-        customer.buy(record2);
-
-        assert.strictEqual(customer.isValueGreater(customer2), true);
-        assert.strictEqual(customer2.isValueGreater(customer), false);
-    })
+})
 })
