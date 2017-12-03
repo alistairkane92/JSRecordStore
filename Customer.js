@@ -17,9 +17,11 @@ Customer.prototype = {
             recordStore.sell(record);
         }
     },
-    sell: function(record){
-        this.inventory.remove(record);
-        this.funds += record.price;
+    sell: function(record, purchaser){
+        if (purchaser.balance > record.price && _.includes(this.getInventory(), record)){
+            purchaser.add(record);
+            this.funds += record.price;
+        }
     },
     calculateTotal: function(){
         return this.inventory.calculateTotal();

@@ -17,10 +17,6 @@ describe("Customer", function(){
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
         record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
         record3 = new Record("Paranoid", "Black Sabbath", "Metal", 20);
-
-        recordStore.add(record1);
-        recordStore.add(record2);
-        recordStore.add(record3);
     })
 
     it("should have a name", function(){
@@ -32,18 +28,20 @@ describe("Customer", function(){
     })
 
     it("should be able to buy a record", function(){
+        recordStore.add(record1);
         customer.buy(record1, recordStore);
 
         assert.strictEqual(customer.funds, 495);
-        assert.strictEqual(recordStore.balance, 5005);
+        assert.strictEqual(recordStore.balance, 5000);
 
-        assert.deepStrictEqual(recordStore.getInventory(), [record2, record3]);
+        assert.deepStrictEqual(recordStore.getInventory(), []);
         assert.deepStrictEqual(customer.getInventory(), [record1]);
     })
 
     it("should not be able to buy if doesn't have enough funds", function(){
-        var record3 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
-        customer.buy(record3, recordStore);
+        var record4 = new Record("Expensive Record", "RichPeople", "Expensiveness", 501);
+        recordStore.add(record4);
+        customer.buy(record4, recordStore);
 
         assert.strictEqual(customer.funds, 500);
         assert.deepStrictEqual(customer.getInventory(), []);
@@ -52,6 +50,10 @@ describe("Customer", function(){
     it("should be able to compare value of their collection with value of another", function(){
         inventory2 = new Inventory();
         customer2 = new Customer("Nadine", inventory2, 500);
+        recordStore.add(record1);
+        recordStore.add(record2);
+        recordStore.add(record3);
+
         customer2.buy(record1, recordStore);
 
         customer.buy(record3, recordStore);
@@ -63,6 +65,10 @@ describe("Customer", function(){
     it("should return true or false if value greater than comparator", function(){
         inventory2 = new Inventory();
         customer2 = new Customer("Nadine", inventory2, 500);
+        recordStore.add(record1);
+        recordStore.add(record2);
+        recordStore.add(record3);
+
         customer2.buy(record2, recordStore);
 
         customer.buy(record1, recordStore);
@@ -73,13 +79,17 @@ describe("Customer", function(){
     })
 
     it("should be able to sell a record", function(){
+        recordStore.add(record1);
         customer.buy(record1, recordStore);
-        customer.sell(record1);
+        customer.sell(record1, recordStore);
         assert.strictEqual(customer.funds, 500);
     })
 
 describe("Customer Inventory", function(){
     beforeEach(function(){
+        recordStore.add(record1);
+        recordStore.add(record2);
+        recordStore.add(record3);
         customer.buy(record1, recordStore);
         customer.buy(record2, recordStore);
         customer.buy(record3, recordStore);
@@ -93,15 +103,15 @@ describe("Customer Inventory", function(){
         assert.strictEqual(customer.calculateTotal(), 35);
     })
 
-    xit("should be able to calculate total by genre of inventory", function(){
+    it("should be able to calculate total by genre of inventory", function(){
         assert.strictEqual(customer.getTotalByGenre("Metal"), 25);
     })
 
-    xit("should be able to view the most valuable record", function(){
+    it("should be able to view the most valuable record", function(){
         assert.strictEqual(customer.getMostValuable(), "Paranoid by Black Sabbath: Metal: 20")
     })
 
-    xit("should be able to sort records by value", function(){
+    it("should be able to sort records by value", function(){
         assert.deepStrictEqual(customer.sortByValue(), [record3, record2, record1]);
     })
 
