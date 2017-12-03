@@ -79,36 +79,29 @@ describe("Customer", function(){
     })
 
 describe("Customer Inventory", function(){
-    xit("should be able to return all records of inventory", function(){
-        customer.buy(record1, recordStore);
-        customer.buy(record2, recordStore)
-        assert.deepStrictEqual(customer.getInventory(), [record1, record2]);
-    })
-
-    xit("should be able to calculate total value of inventory", function(){
+    beforeEach(function(){
         customer.buy(record1, recordStore);
         customer.buy(record2, recordStore);
-        assert.strictEqual(customer.calculateTotal(), 15);
+        customer.buy(record3, recordStore);
+    })
+
+    it("should be able to return all records of inventory", function(){
+        assert.deepStrictEqual(customer.getInventory(), [record1, record2, record3]);
+    })
+
+    it("should be able to calculate total value of inventory", function(){
+        assert.strictEqual(customer.calculateTotal(), 35);
     })
 
     xit("should be able to calculate total by genre of inventory", function(){
-        customer.buy(record1);
-        customer.buy(record2);
-        customer.buy(record3);
         assert.strictEqual(customer.getTotalByGenre("Metal"), 25);
     })
 
     xit("should be able to view the most valuable record", function(){
-        customer.buy(record1);
-        customer.buy(record2);
-        customer.buy(record3);
         assert.strictEqual(customer.getMostValuable(), "Paranoid by Black Sabbath: Metal: 20")
     })
 
     xit("should be able to sort records by value", function(){
-        customer.buy(record1);
-        customer.buy(record3);
-        customer.buy(record2);
         assert.deepStrictEqual(customer.sortByValue(), [record3, record2, record1]);
     })
 
