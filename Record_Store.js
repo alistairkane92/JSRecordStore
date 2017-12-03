@@ -29,6 +29,9 @@ RecordStore.prototype = {
     },
     getByGenre: function(genre){
         return this.inventory.getByGenre(genre);
+    },
+    getMostValuable: function(){
+        return this.inventory.getMostValuable();
     }
 }
 
