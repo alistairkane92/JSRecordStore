@@ -12,6 +12,10 @@ Customer.prototype = {
         this.inventory.add(record);
         this.funds -= record.price;
     },
+    sell: function(record){
+        this.inventory.remove(record);
+        this.funds += record.price;
+    }
 }
 
 module.exports = Customer;

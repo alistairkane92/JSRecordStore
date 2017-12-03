@@ -29,7 +29,12 @@ describe("Customer", function(){
         assert.deepStrictEqual(customer.getInventory(), [record1]);
     })
 
-    it("should be able to sell a record")
+    it("should be able to sell a record", function(){
+        customer.buy(record1);
+        customer.sell(record1);
+        assert.strictEqual(customer.funds, 500);
+    })
+    
     it("should not be able to buy if doesn't have enough funds")
     it("should be able to view total value of inventory")
     it("should be able to calculate total value of inventory")
