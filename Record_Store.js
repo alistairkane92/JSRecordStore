@@ -19,7 +19,7 @@ RecordStore.prototype = {
     },
     sell: function(record){
         this.inventory.remove(record);
-        this.balance -= record.price;
+        this.balance += record.price;
     },
     calculateTotal: function(){
         return this.inventory.calculateTotal();

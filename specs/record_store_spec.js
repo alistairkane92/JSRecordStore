@@ -28,7 +28,7 @@ describe("RecordStore", function(){
     it("should be able to sell a record", function(){
         recordStore.add(record1);
         recordStore.sell(record1);
-        assert.strictEqual(recordStore.balance, 4995);
+        assert.strictEqual(recordStore.balance, 5005);
     })
 
     it("should be able to return finances + total value of inventory", function(){

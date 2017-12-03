@@ -1,3 +1,5 @@
+var _ = require("Lodash");
+
 var Customer = function(name, inventory, funds){
     this.name = name;
     this.inventory = inventory;
@@ -8,10 +10,11 @@ Customer.prototype = {
     getInventory: function(){
         return this.inventory.stock;
     },
-    buy: function(record){
-        if (this.funds > record.price){
-            this.inventory.add(record);
+    buy: function(record, recordStore){
+        if (this.funds >= record.price){
             this.funds -= record.price;
+            this.inventory.add(record);
+            recordStore.sell(record);
         }
     },
     sell: function(record){
