@@ -11,5 +11,10 @@ Inventory.prototype = {
     remove: function(record){
         _.remove(this.stock, record);
     },
+    getStock: function(){
+        return _.forEach(this.stock, function(record){
+            record.getRecord();
+        })
+    },
 }
 module.exports = Inventory;

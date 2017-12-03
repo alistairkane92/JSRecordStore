@@ -10,17 +10,21 @@ describe("Inventory", function(){
     });
 
     it("should be able to add records to stock", function(){
-        inventory.add(record1)
-        assert.deepStrictEqual(inventory.stock, [record1])
+        inventory.add(record1);
+        assert.deepStrictEqual(inventory.stock, [record1]);
     })
 
     it("should be able to remove a record from stock", function(){
         inventory.add(record1);
         inventory.remove(record1);
-        assert.deepStrictEqual(inventory.stock, [])
+        assert.deepStrictEqual(inventory.stock, []);
     })
-    
-    it("should be able to display all records in stock")
+
+    it("should be able to display all records in stock", function(){
+        inventory.add(record1);
+        inventory.add(record2);
+        assert.deepStrictEqual(inventory.getStock(), [record1, record2]);
+    })
     it("should be able to calculate the total value of stock")
     it("should be able to return all records by a specific stock")
 })
