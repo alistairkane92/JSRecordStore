@@ -9,7 +9,10 @@ describe("Customer", function(){
         customer = new Customer("Terry", inventory);
     })
 
-    it("should have a name")
+    it("should have a name", function(){
+        assert.strictEqual(customer.name, "Terry");
+    })
+
     it("should have funds")
     it("should be able to buy a record")
     it("should be able to sell a record")
