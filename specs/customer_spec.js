@@ -27,6 +27,10 @@ describe("Customer", function(){
         assert.strictEqual(customer.balance, 500);
     })
 
+    it("should have an inventory", function(){
+        assert.deepStrictEqual(customer.getInventory(), []);
+    })
+
     it("should be able to buy a record", function(){
         recordStore.buy(record1);
         customer.buy(record1, recordStore);
@@ -117,6 +121,5 @@ describe("Customer Inventory", function(){
     it("should be able to sort records by value", function(){
         assert.deepStrictEqual(customer.sortByValue(), [record3, record2, record1]);
     })
-
 })
 })
