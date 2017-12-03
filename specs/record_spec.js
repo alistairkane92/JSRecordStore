@@ -23,7 +23,6 @@ describe("Record", function(){
     })
 
     it("should be able to display a record as string", function(){
-        assert.deepStrictEqual(record1.getRecord(record1), "Black Album by Metallica: Metal: 5");
+        assert.deepStrictEqual(record1.getRecord(), "Black Album by Metallica: Metal: 5");
     })
-
 })
