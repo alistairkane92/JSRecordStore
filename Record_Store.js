@@ -12,9 +12,6 @@ RecordStore.prototype = {
         this.inventory.add(record);
         this.balance -= record.price;
     },
-    remove: function(record){
-        this.inventory.remove(record);
-    },
     getInventory: function(){
         return this.inventory.stock;
     },
