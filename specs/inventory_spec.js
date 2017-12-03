@@ -36,7 +36,6 @@ describe("Inventory", function(){
 
     it("should be able to return all records by a specific genre", function(){
         var record3 = new Record("From Mars to Sirius", "Gojira", "Metal", 3);
-
         inventory.add(record1);
         inventory.add(record2);
         inventory.add(record3);
@@ -45,7 +44,6 @@ describe("Inventory", function(){
 
     it("should be able to calculate total by genre", function(){
         var record3 = new Record("From Mars to Sirius", "Gojira", "Metal", 20);
-
         inventory.add(record1);
         inventory.add(record2);
         inventory.add(record3);
