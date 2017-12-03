@@ -32,11 +32,13 @@ Inventory.prototype = {
         return _.sumBy(this.getByGenre(genre), "price");
     },
     getMostValuable: function(){
-        var sortedArray = _.orderBy(this.stock, ["price"], ["desc"]);
-        return sortedArray[0].getRecord();
+        // var sortedArray = _.orderBy(this.stock, ["price"], ["desc"]);
+        // return sortedArray[0].getRecord();
+
+        return (this.sortByValue())[0].getRecord();
     },
     sortByValue: function(){
-        return _.orderBy(this.stock, ["price"], ["asc"]);
+        return _.orderBy(this.stock, ["price"], ["desc"]);
     }
 
 

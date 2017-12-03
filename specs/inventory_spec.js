@@ -59,8 +59,9 @@ describe("Inventory", function(){
     })
 
     it("should be able to sort records by value", function(){
-        inventory.add(record2);
         inventory.add(record1);
-        assert.deepStrictEqual(inventory.sortByValue(), [record1, record2]);
+        inventory.add(record2);
+
+        assert.deepStrictEqual(inventory.sortByValue(), [record2, record1]);
     })
 })

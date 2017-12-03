@@ -67,10 +67,11 @@ describe("Customer", function(){
     })
 
     it("should be able to sort records by value", function(){
-        customer.buy(record3);
         customer.buy(record1);
+        customer.buy(record3);
         customer.buy(record2);
-        assert.deepStrictEqual(customer.sortByValue(), [record1, record2, record3]);
+        assert.deepStrictEqual(customer.sortByValue(), [record3, record2, record1]);
     })
+
     it("should be able to compare value of their collection with value of another")
 })
