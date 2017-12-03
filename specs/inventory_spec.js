@@ -32,5 +32,12 @@ describe("Inventory", function(){
         assert.deepStrictEqual(inventory.calculateTotal(), 15);
     })
 
-    it("should be able to return all records by a specific stock")
+    it("should be able to return all records by a specific genre", function(){
+        var record3 = new Record("From Mars to Sirius", "Gojira", "Metal", 3);
+
+        inventory.add(record1);
+        inventory.add(record2);
+        inventory.add(record3);
+        assert.deepStrictEqual(inventory.getByGenre("Metal"), [record1, record3]);
+    })
 })

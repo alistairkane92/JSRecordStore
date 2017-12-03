@@ -21,5 +21,8 @@ Inventory.prototype = {
             return record.price;
         })
     },
+    getByGenre: function(genre){
+        return _.filter(this.stock, {"genre" : genre});
+    }
 }
 module.exports = Inventory;
