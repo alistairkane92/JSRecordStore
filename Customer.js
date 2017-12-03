@@ -32,6 +32,10 @@ Customer.prototype = {
     },
     sortByValue: function(){
         return this.inventory.sortByValue();
+    },
+    compareTotalValue: function(customer){
+        return this.name + ": " + this.calculateTotal() + ", "
+        + customer.name + ": " + customer.calculateTotal();
     }
 }
 

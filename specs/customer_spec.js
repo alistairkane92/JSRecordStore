@@ -73,5 +73,15 @@ describe("Customer", function(){
         assert.deepStrictEqual(customer.sortByValue(), [record3, record2, record1]);
     })
 
-    it("should be able to compare value of their collection with value of another")
+    it("should be able to compare value of their collection with value of another", function(){
+        inventory2 = new Inventory();
+        customer2 = new Customer("Nadine", inventory2, 500);
+        customer2.buy(record1);
+
+        customer.buy(record1);
+        customer.buy(record3);
+        customer.buy(record2);
+
+        assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 35, Nadine: 5")
+    })
 })
