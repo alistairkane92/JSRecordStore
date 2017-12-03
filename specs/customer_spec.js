@@ -48,8 +48,18 @@ describe("Customer", function(){
         customer.buy(record2);
         assert.strictEqual(customer.calculateTotal(), 15);
     })
-    it("should be able to calculate total by genre of inventory")
-    it("should be able to view the most valuable record")
+
+    it("should be able to calculate total by genre of inventory", function(){
+        record3 = new Record("Test", "Test", "Metal", 10);
+        customer.buy(record1);
+        customer.buy(record2);
+        customer.buy(record3);
+        customer.getByGenre(customer.getByGenre("Metal"), [record1, record3]);
+    })
+
+    it("should be able to view the most valuable record", function(){
+        
+    })
     it("should be able to sort records by value")
     it("should be able to compare value of their collection with value of another")
 })
