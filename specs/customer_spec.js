@@ -82,6 +82,19 @@ describe("Customer", function(){
         customer.buy(record3);
         customer.buy(record2);
 
-        assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 35, Nadine: 5")
+        assert.strictEqual(customer.compareTotalValue(customer2), "Terry: 35, Nadine: 5");
+    })
+
+    it("should return true or false if value greater than comparator", function(){
+        inventory2 = new Inventory();
+        customer2 = new Customer("Nadine", inventory2, 500);
+        customer2.buy(record1);
+
+        customer.buy(record1);
+        customer.buy(record3);
+        customer.buy(record2);
+
+        assert.strictEqual(customer.isValueGreater(customer2), true);
+        assert.strictEqual(customer2.isValueGreater(customer), false);
     })
 })

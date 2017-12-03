@@ -36,6 +36,11 @@ Customer.prototype = {
     compareTotalValue: function(customer){
         return this.name + ": " + this.calculateTotal() + ", "
         + customer.name + ": " + customer.calculateTotal();
+    },
+    isValueGreater: function(customer){
+        if (this.calculateTotal() > customer.calculateTotal()){
+            return true;
+        } return false;
     }
 }
 
