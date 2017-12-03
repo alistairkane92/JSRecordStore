@@ -1,6 +1,7 @@
 var assert = require('assert');
 var Record = require('../record');
 var RecordStore = require('../record_store');
+var Inventory = require('../inventory');
 
 describe("RecordStore", function(){
     var record1, record2, recordStore;
@@ -9,6 +10,7 @@ describe("RecordStore", function(){
         recordStore = new RecordStore("Big Als", "Glasgow", 5000);
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
         record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
+        inventory = new Inventory();
     })
 
     it("should have a name", function(){
