@@ -25,7 +25,7 @@ RecordStore.prototype = {
         return this.inventory.calculateTotal();
     },
     getFinances: function(){
-        return "Balance : " + this.balance + ", Value : " + this.calculateTotal();
+        return "Balance : " + this.balance + ", Value : " + this.inventory.calculateTotal();
     },
     getByGenre: function(genre){
         return _.filter(this.inventory, {"genre" : genre});
