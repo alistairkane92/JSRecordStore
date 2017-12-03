@@ -8,18 +8,16 @@ var RecordStore = function(name, city, balance, inventory){
 }
 
 RecordStore.prototype = {
-    add: function(record){
+    buy: function(record){
         this.inventory.add(record);
-    },
-    remove: function(record){
-        this.inventory.remove(record);
+        this.balance -= record.price;
     },
     getInventory: function(){
         return this.inventory.stock;
     },
     sell: function(record){
         this.inventory.remove(record);
-        this.balance -= record.price;
+        this.balance += record.price;
     },
     calculateTotal: function(){
         return this.inventory.calculateTotal();
