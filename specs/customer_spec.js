@@ -59,7 +59,6 @@ describe("Customer", function(){
         assert.strictEqual(customer.isValueGreater(customer2), true);
         assert.strictEqual(customer2.isValueGreater(customer), false);
     })
-})
 
 describe("Customer Inventory", function(){
     beforeEach(function(){
@@ -69,7 +68,7 @@ describe("Customer Inventory", function(){
         record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
         record3 = new Record("Paranoid", "Black Sabbath", "Metal", 20);
     })
-    
+
     it("should be able to return all records of inventory", function(){
         customer.inventory.add(record1);
         assert.deepStrictEqual(customer.getInventory(), [record1]);
@@ -108,4 +107,5 @@ describe("Customer Inventory", function(){
         assert.deepStrictEqual(customer.sortByValue(), [record3, record2, record1]);
     })
 
+})
 })
