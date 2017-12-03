@@ -28,7 +28,7 @@ RecordStore.prototype = {
         return "Balance : " + this.balance + ", Value : " + this.inventory.calculateTotal();
     },
     getByGenre: function(genre){
-        return _.filter(this.inventory, {"genre" : genre});
+        return this.inventory.getByGenre(genre);
     }
 }
 
