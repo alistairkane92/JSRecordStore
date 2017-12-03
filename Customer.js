@@ -6,7 +6,7 @@ var Customer = function(name, inventory, funds){
 
 Customer.prototype = {
     getInventory: function(){
-        return this.inventory.getStock();
+        return this.inventory.stock;
     },
     buy: function(record){
         if (this.funds > record.price){
