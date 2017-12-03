@@ -66,7 +66,7 @@ describe("Customer", function(){
         assert.strictEqual(customer.getMostValuable(), "Paranoid by Black Sabbath: Metal: 20")
     })
 
-    xit("should be able to sort records by value", function(){
+    it("should be able to sort records by value", function(){
         customer.buy(record3);
         customer.buy(record1);
         customer.buy(record2);
