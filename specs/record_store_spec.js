@@ -4,7 +4,7 @@ var RecordStore = require('../record_store');
 var Inventory = require('../inventory');
 
 describe("RecordStore", function(){
-    var record1, record2, recordStore, inventory;
+    var record1, record2, record3, recordStore, inventory;
 
     beforeEach(function(){
         recordStore = new RecordStore("Big Als", "Glasgow", 5000, inventory);
@@ -25,6 +25,10 @@ describe("RecordStore", function(){
         assert.strictEqual(recordStore.balance, 5000);
     })
 
+    it("should have an inventory", function(){
+        assert.deepStrictEqual(recordStore.getInventory(), []);
+    })
+
     it("should be able to sell a record", function(){
         recordStore.buy(record1);
         recordStore.sell(record1);
@@ -42,8 +46,6 @@ describe("RecordStore", function(){
         recordStore.buy(record2);
         assert.strictEqual(recordStore.getFinances(), "Balance : 4985, Value : 15")
     })
-
-
 
 describe("Record Store Inventory", function(){
     beforeEach(function(){
