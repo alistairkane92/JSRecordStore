@@ -25,6 +25,12 @@ describe("RecordStore", function(){
         assert.strictEqual(recordStore.balance, 5000);
     })
 
+    it("should be able to display all records in stock", function(){
+        recordStore.add(record1);
+        recordStore.add(record2);
+        assert.deepStrictEqual(recordStore.getInventory(), [record1, record2]);
+    })
+
     it("should be able to sell a record", function(){
         recordStore.add(record1);
         recordStore.sell(record1);
