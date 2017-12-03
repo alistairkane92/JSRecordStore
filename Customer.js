@@ -19,7 +19,7 @@ Customer.prototype = {
     },
     sell: function(record, purchaser){
         if (purchaser.balance > record.price && _.includes(this.getInventory(), record)){
-            purchaser.add(record);
+            purchaser.sell(record);
             this.funds += record.price;
         }
     },
