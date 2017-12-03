@@ -7,6 +7,7 @@ describe("Customer", function(){
     beforeEach(function(){
         inventory = new Inventory();
         customer = new Customer("Terry", inventory, 500);
+        record1 = new Record("Black Album", "Metallica", "Metal", 5);
     })
 
     it("should have a name", function(){
@@ -16,7 +17,15 @@ describe("Customer", function(){
     it("should have funds", function(){
         assert.strictEqual(customer.funds, 500);
     })
-    it("should be able to buy a record")
+
+    it("should be able to return all records of inventory", function(){
+        customer.inventory.add(record1);
+        assert.deepStrictEqual(customer.getInventory(), [record1]);
+    })
+
+    it("should be able to buy a record", function(){
+    })
+
     it("should be able to sell a record")
     it("should not be able to buy if doesn't have enough funds")
     it("should be able to view total value of inventory")

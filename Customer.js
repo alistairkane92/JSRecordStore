@@ -4,4 +4,14 @@ var Customer = function(name, inventory, funds){
     this.funds = funds;
 }
 
+Customer.prototype = {
+    getInventory: function(){
+        return this.inventory.getStock();
+    },
+    buy: function(record){
+        this.inventory.add(record);
+        this.funds -= record.price;
+    },
+}
+
 module.exports = Customer;

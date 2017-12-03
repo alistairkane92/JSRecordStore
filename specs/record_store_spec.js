@@ -25,7 +25,7 @@ describe("RecordStore", function(){
         assert.strictEqual(recordStore.balance, 5000);
     })
 
-    it("should be able to getall records of inventory", function(){
+    it("should be able to get all records of inventory", function(){
         recordStore.add(record1);
         recordStore.add(record2);
         assert.deepStrictEqual(recordStore.getInventory(), [record1, record2]);
