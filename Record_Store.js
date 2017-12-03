@@ -1,10 +1,10 @@
 var _ = require("Lodash");
 
-var RecordStore = function(name, city, balance){
+var RecordStore = function(name, city, balance, inventory){
     this.name = name;
     this.city = city;
     this.balance = balance;
-    this.inventory = [];
+    this.inventory = inventory;
 }
 
 RecordStore.prototype = {
