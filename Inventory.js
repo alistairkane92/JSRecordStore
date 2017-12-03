@@ -27,6 +27,10 @@ Inventory.prototype = {
     },
     getByGenre: function(genre){
         return _.filter(this.stock, {"genre" : genre});
-    }
+    },
+    getTotalByGenre: function(genre){
+        return _.sumBy(this.getByGenre(genre), "price");
+    },
+    
 }
 module.exports = Inventory;

@@ -23,6 +23,9 @@ Customer.prototype = {
     },
     getByGenre: function(genre){
         return this.inventory.getByGenre(genre);
+    },
+    getTotalByGenre: function(genre){
+        return this.inventory.getTotalByGenre(genre);
     }
 }
 

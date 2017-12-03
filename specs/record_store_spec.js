@@ -4,7 +4,7 @@ var RecordStore = require('../record_store');
 var Inventory = require('../inventory');
 
 describe("RecordStore", function(){
-    var record1, record2, recordStore;
+    var record1, record2, recordStore, inventory;
 
     beforeEach(function(){
         recordStore = new RecordStore("Big Als", "Glasgow", 5000, inventory);
