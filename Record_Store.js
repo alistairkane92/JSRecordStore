@@ -19,6 +19,14 @@ RecordStore.prototype = {
             record.getRecord();
         })
     },
+    listInventory: function(){
+        var StringOfRecords = "";
+        var newArray = this.getInventory();
+
+        _.forEach(newArray, function(record){
+            StringOfRecords += record;
+        })
+    },
     sell: function(record){
         this.remove(record);
         this.balance -= record.price;

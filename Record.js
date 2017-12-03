@@ -7,7 +7,7 @@ var Record = function(title, artist, genre, price){
 
 Record.prototype = {
     getRecord: function(){
-        return this.title + ", " + this.artist + ", " + this.genre + ", " + this.price;
+        return this.title + " by " + this.artist + ": " + this.genre + ": " + this.price;
     }
 }
 

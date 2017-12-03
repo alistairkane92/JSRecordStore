@@ -38,10 +38,17 @@ describe("RecordStore", function(){
         assert.deepStrictEqual(recordStore.inventory, []);
     })
 
-    it("should be able to display all records of inventory", function(){
+    it("should be able to get all records in inventory", function(){
         recordStore.add(record1);
         recordStore.add(record2);
         assert.deepStrictEqual(recordStore.getInventory(), [record1, record2]);
+    })
+
+    it("should be able to display all record in inventory as string", function(){
+        recordStore.add(record1);
+        recordStore.add(record2);
+        assert.strictEqual(recordStore.listInventory(),
+        "Black Album by Metallica: Metal: 5, Brothers by The Black Keys: Rock: 10");
     })
 
     it("should be able to sell a record", function(){
