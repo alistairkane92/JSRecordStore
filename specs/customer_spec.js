@@ -17,6 +17,10 @@ describe("Customer", function(){
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
         record2 = new Record("Brothers", "The Black Keys", "Rock", 10);
         record3 = new Record("Paranoid", "Black Sabbath", "Metal", 20);
+
+        recordStore.buy(record1);
+        recordStore.buy(record2);
+        recordStore.buy(record3);
     })
 
     it("should have a name", function(){
@@ -32,13 +36,12 @@ describe("Customer", function(){
     })
 
     it("should be able to buy a record", function(){
-        recordStore.buy(record1);
+
         customer.buy(record1, recordStore);
 
         assert.strictEqual(customer.balance, 495);
-        assert.strictEqual(recordStore.balance, 5000);
 
-        assert.deepStrictEqual(recordStore.getInventory(), []);
+        assert.deepStrictEqual(recordStore.getInventory(), [record2, record3]);
         assert.deepStrictEqual(customer.getInventory(), [record1]);
     })
 
@@ -55,10 +58,6 @@ describe("Customer", function(){
         inventory2 = new Inventory();
         customer2 = new Customer("Nadine", inventory2, 500);
 
-        recordStore.buy(record1);
-        recordStore.buy(record2);
-        recordStore.buy(record3);
-
         customer2.buy(record1, recordStore);
 
         customer.buy(record3, recordStore);
@@ -71,10 +70,6 @@ describe("Customer", function(){
     it("should return true or false if value greater than comparator", function(){
         inventory2 = new Inventory();
         customer2 = new Customer("Nadine", inventory2, 500);
-
-        recordStore.buy(record1);
-        recordStore.buy(record2);
-        recordStore.buy(record3);
 
         customer2.buy(record2, recordStore);
 
