@@ -29,16 +29,16 @@ describe("RecordStore", function(){
         assert.deepStrictEqual(recordStore.getInventory(), []);
     })
 
-    it("should be able to sell a record", function(){
-        recordStore.buy(record1);
-        recordStore.sell(record1);
-        assert.strictEqual(recordStore.balance, 5000);
-    })
-
     it("should be able to buy a record", function(){
         recordStore.buy(record1);
         assert.strictEqual(recordStore.balance, 4995);
         assert.deepStrictEqual(recordStore.getInventory(), [record1]);
+    })
+
+    it("should be able to sell a record", function(){
+        recordStore.buy(record1);
+        recordStore.sell(record1);
+        assert.strictEqual(recordStore.balance, 5000);
     })
 
     it("should be able to return finances + total value of inventory", function(){
