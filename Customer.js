@@ -12,15 +12,16 @@ Customer.prototype = {
     },
     buy: function(record, recordStore){
         if (this.balance >= record.price && _.includes(recordStore.getInventory(), record)){
+            recordStore.sell(record);
             this.balance -= record.price;
             this.inventory.add(record);
-            recordStore.sell(record);
         }
     },
     sell: function(record, purchaser){
         if (purchaser.balance > record.price && _.includes(this.getInventory(), record)){
             purchaser.sell(record);
             this.balance += record.price;
+            this.inventory.remove(record);
         }
     },
     compareTotalValue: function(customer){
