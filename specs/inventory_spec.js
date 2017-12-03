@@ -25,6 +25,12 @@ describe("Inventory", function(){
         inventory.add(record2);
         assert.deepStrictEqual(inventory.getStock(), [record1, record2]);
     })
-    it("should be able to calculate the total value of stock")
+
+    it("should be able to calculate the total value of stock", function(){
+        inventory.add(record1);
+        inventory.add(record2);
+        assert.deepStrictEqual(inventory.calculateTotal(), 15);
+    })
+
     it("should be able to return all records by a specific stock")
 })

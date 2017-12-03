@@ -16,5 +16,10 @@ Inventory.prototype = {
             record.getRecord();
         })
     },
+    calculateTotal: function(){
+        return _.sumBy(this.stock, function(record){
+            return record.price;
+        })
+    },
 }
 module.exports = Inventory;
