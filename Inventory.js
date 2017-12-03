@@ -7,6 +7,9 @@ var Inventory = function(){
 Inventory.prototype = {
     add: function(record){
         this.stock.push(record);
-    }
+    },
+    remove: function(record){
+        _.remove(this.stock, record);
+    },
 }
 module.exports = Inventory;
