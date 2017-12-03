@@ -66,11 +66,11 @@ describe("Customer", function(){
         assert.strictEqual(customer.getMostValuable(), "Paranoid by Black Sabbath: Metal: 20")
     })
 
-    it("should be able to sort records by value", function(){
+    xit("should be able to sort records by value", function(){
+        customer.buy(record3);
         customer.buy(record1);
         customer.buy(record2);
-        customer.buy(record3);
-        assert.deepStrictEqual(customer.sortByValue(), )
+        assert.deepStrictEqual(customer.sortByValue(), [record1, record2, record3]);
     })
     it("should be able to compare value of their collection with value of another")
 })

@@ -35,6 +35,9 @@ Inventory.prototype = {
         var sortedArray = _.orderBy(this.stock, ["price"], ["desc"]);
         return sortedArray[0].getRecord();
     },
+    sortByValue: function(){
+        return _.orderBy(this.stock, ["price"], ["asc"]);
+    }
 
 
 

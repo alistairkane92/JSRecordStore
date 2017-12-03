@@ -57,4 +57,10 @@ describe("Inventory", function(){
         inventory.add(record2);
         assert.strictEqual(inventory.getMostValuable(), "Brothers by The Black Keys: Rock: 10")
     })
+
+    it("should be able to sort records by value", function(){
+        inventory.add(record2);
+        inventory.add(record1);
+        assert.deepStrictEqual(inventory.sortByValue(), [record1, record2]);
+    })
 })
