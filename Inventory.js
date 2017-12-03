@@ -12,9 +12,13 @@ Inventory.prototype = {
         _.remove(this.stock, record);
     },
     getStock: function(){
-        return _.forEach(this.stock, function(record){
-            record.getRecord();
-        })
+        if (this.stock.length > 0){
+            return _.forEach(this.stock, function(record){
+                record.getRecord();
+            })
+        } else {
+            return this.stock;
+        }
     },
     calculateTotal: function(){
         return _.sumBy(this.stock, function(record){
@@ -23,6 +27,16 @@ Inventory.prototype = {
     },
     getByGenre: function(genre){
         return _.filter(this.stock, {"genre" : genre});
-    }
+    },
+    getTotalByGenre: function(genre){
+        return _.sumBy(this.getByGenre(genre), "price");
+    },
+    getMostValuable: function(){
+        return (this.sortByValue())[0].getRecord();
+    },
+    sortByValue: function(){
+        return _.orderBy(this.stock, ["price"], ["desc"]);
+    },
+    
 }
 module.exports = Inventory;

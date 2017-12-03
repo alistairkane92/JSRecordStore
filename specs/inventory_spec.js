@@ -3,6 +3,8 @@ var Record = require('../record.js')
 var Inventory = require('../inventory.js')
 
 describe("Inventory", function(){
+    var inventory, record1, record2;
+
     beforeEach(function(){
         inventory = new Inventory();
         record1 = new Record("Black Album", "Metallica", "Metal", 5);
@@ -39,5 +41,27 @@ describe("Inventory", function(){
         inventory.add(record2);
         inventory.add(record3);
         assert.deepStrictEqual(inventory.getByGenre("Metal"), [record1, record3]);
+    })
+
+    it("should be able to calculate total by genre", function(){
+        var record3 = new Record("From Mars to Sirius", "Gojira", "Metal", 20);
+
+        inventory.add(record1);
+        inventory.add(record2);
+        inventory.add(record3);
+        assert.strictEqual(inventory.getTotalByGenre("Metal"), 25);
+    })
+
+    it("should be able to return the most valuable record", function(){
+        inventory.add(record1);
+        inventory.add(record2);
+        assert.strictEqual(inventory.getMostValuable(), "Brothers by The Black Keys: Rock: 10")
+    })
+
+    it("should be able to sort records by value", function(){
+        inventory.add(record1);
+        inventory.add(record2);
+
+        assert.deepStrictEqual(inventory.sortByValue(), [record2, record1]);
     })
 })
