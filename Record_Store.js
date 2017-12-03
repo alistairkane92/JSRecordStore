@@ -12,21 +12,17 @@ RecordStore.prototype = {
         this.inventory.add(record);
     },
     remove: function(record){
-        _.remove(this.inventory, record);
+        this.inventory.remove(record);
     },
     getInventory: function(){
-        return _.forEach(this.inventory, function(record){
-            record.getRecord();
-        })
+        return this.inventory.getStock();
     },
     sell: function(record){
         this.remove(record);
         this.balance -= record.price;
     },
     calculateTotal: function(){
-        return _.sumBy(this.inventory, function(record){
-            return record.price;
-        })
+        return this.inventory.calculateTotal();
     },
     getFinances: function(){
         return "Balance : " + this.balance + ", Value : " + this.calculateTotal();
